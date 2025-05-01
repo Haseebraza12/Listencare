@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.example.listencare.app-mergeReleaseResources-13:/values-fi/values-fi.xml",
+            "map": [
+                {
+                    "source": "/home/haseeb-raza/.gradle/caches/8.14/transforms/98a829af22a2a21d7a70b7e812453f29/transformed/core-1.8.0/res/values-fi/values-fi.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        }
+    ]
+}

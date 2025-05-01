@@ -1,0 +1,12 @@
+io.flutter.plugins.pathprovider.path_provider_android-jetified-window-1.0.0-beta04-0 /home/haseeb-raza/.gradle/caches/8.14/transforms/043abc562f34a917fb52fc0d92e4d3b3/transformed/jetified-window-1.0.0-beta04/res
+io.flutter.plugins.pathprovider.path_provider_android-core-1.6.0-1 /home/haseeb-raza/.gradle/caches/8.14/transforms/2fe738d2f97788d32cedec2fe8ccea35/transformed/core-1.6.0/res
+io.flutter.plugins.pathprovider.path_provider_android-jetified-window-java-1.0.0-beta04-2 /home/haseeb-raza/.gradle/caches/8.14/transforms/39c416c4c166c8922c030f4bb6277e21/transformed/jetified-window-java-1.0.0-beta04/res
+io.flutter.plugins.pathprovider.path_provider_android-jetified-annotation-experimental-1.1.0-3 /home/haseeb-raza/.gradle/caches/8.14/transforms/461109a5adb93e44813821d5c239e7ef/transformed/jetified-annotation-experimental-1.1.0/res
+io.flutter.plugins.pathprovider.path_provider_android-main-4 /home/haseeb-raza/.pub-cache/hosted/pub.dev/path_provider_android-2.2.10/android/src/main/res
+io.flutter.plugins.pathprovider.path_provider_android-release-5 /home/haseeb-raza/.pub-cache/hosted/pub.dev/path_provider_android-2.2.10/android/src/release/res
+io.flutter.plugins.pathprovider.path_provider_android-pngs-6 /home/haseeb-raza/Desktop/Listencare/listencare/build/path_provider_android/generated/res/pngs/release
+io.flutter.plugins.pathprovider.path_provider_android-resValues-7 /home/haseeb-raza/Desktop/Listencare/listencare/build/path_provider_android/generated/res/resValues/release
+io.flutter.plugins.pathprovider.path_provider_android-rs-8 /home/haseeb-raza/Desktop/Listencare/listencare/build/path_provider_android/generated/res/rs/release
+io.flutter.plugins.pathprovider.path_provider_android-mergeReleaseResources-9 /home/haseeb-raza/Desktop/Listencare/listencare/build/path_provider_android/intermediates/incremental/release/mergeReleaseResources/merged.dir
+io.flutter.plugins.pathprovider.path_provider_android-mergeReleaseResources-10 /home/haseeb-raza/Desktop/Listencare/listencare/build/path_provider_android/intermediates/incremental/release/mergeReleaseResources/stripped.dir
+io.flutter.plugins.pathprovider.path_provider_android-merged_res-11 /home/haseeb-raza/Desktop/Listencare/listencare/build/path_provider_android/intermediates/merged_res/release

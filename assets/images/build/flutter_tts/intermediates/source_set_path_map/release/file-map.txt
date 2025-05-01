@@ -1,0 +1,14 @@
+com.tundralabs.fluttertts.flutter_tts-jetified-window-1.0.0-beta04-0 /home/haseeb-raza/.gradle/caches/8.14/transforms/043abc562f34a917fb52fc0d92e4d3b3/transformed/jetified-window-1.0.0-beta04/res
+com.tundralabs.fluttertts.flutter_tts-lifecycle-runtime-2.3.1-1 /home/haseeb-raza/.gradle/caches/8.14/transforms/2abfe63856c2d7daac149cf48481f325/transformed/lifecycle-runtime-2.3.1/res
+com.tundralabs.fluttertts.flutter_tts-jetified-window-java-1.0.0-beta04-2 /home/haseeb-raza/.gradle/caches/8.14/transforms/39c416c4c166c8922c030f4bb6277e21/transformed/jetified-window-java-1.0.0-beta04/res
+com.tundralabs.fluttertts.flutter_tts-jetified-annotation-experimental-1.1.0-3 /home/haseeb-raza/.gradle/caches/8.14/transforms/461109a5adb93e44813821d5c239e7ef/transformed/jetified-annotation-experimental-1.1.0/res
+com.tundralabs.fluttertts.flutter_tts-core-1.8.0-4 /home/haseeb-raza/.gradle/caches/8.14/transforms/98a829af22a2a21d7a70b7e812453f29/transformed/core-1.8.0/res
+com.tundralabs.fluttertts.flutter_tts-jetified-core-ktx-1.8.0-5 /home/haseeb-raza/.gradle/caches/8.14/transforms/d719ef4a62043325a1234fa491f5d1a1/transformed/jetified-core-ktx-1.8.0/res
+com.tundralabs.fluttertts.flutter_tts-main-6 /home/haseeb-raza/.pub-cache/hosted/pub.dev/flutter_tts-3.8.5/android/src/main/res
+com.tundralabs.fluttertts.flutter_tts-release-7 /home/haseeb-raza/.pub-cache/hosted/pub.dev/flutter_tts-3.8.5/android/src/release/res
+com.tundralabs.fluttertts.flutter_tts-pngs-8 /home/haseeb-raza/Desktop/Listencare/listencare/build/flutter_tts/generated/res/pngs/release
+com.tundralabs.fluttertts.flutter_tts-resValues-9 /home/haseeb-raza/Desktop/Listencare/listencare/build/flutter_tts/generated/res/resValues/release
+com.tundralabs.fluttertts.flutter_tts-rs-10 /home/haseeb-raza/Desktop/Listencare/listencare/build/flutter_tts/generated/res/rs/release
+com.tundralabs.fluttertts.flutter_tts-mergeReleaseResources-11 /home/haseeb-raza/Desktop/Listencare/listencare/build/flutter_tts/intermediates/incremental/release/mergeReleaseResources/merged.dir
+com.tundralabs.fluttertts.flutter_tts-mergeReleaseResources-12 /home/haseeb-raza/Desktop/Listencare/listencare/build/flutter_tts/intermediates/incremental/release/mergeReleaseResources/stripped.dir
+com.tundralabs.fluttertts.flutter_tts-merged_res-13 /home/haseeb-raza/Desktop/Listencare/listencare/build/flutter_tts/intermediates/merged_res/release

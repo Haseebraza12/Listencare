@@ -1,0 +1,12 @@
+com.csdcorp.speech_to_text-jetified-window-1.0.0-beta04-0 /home/haseeb-raza/.gradle/caches/8.14/transforms/043abc562f34a917fb52fc0d92e4d3b3/transformed/jetified-window-1.0.0-beta04/res
+com.csdcorp.speech_to_text-core-1.6.0-1 /home/haseeb-raza/.gradle/caches/8.14/transforms/2fe738d2f97788d32cedec2fe8ccea35/transformed/core-1.6.0/res
+com.csdcorp.speech_to_text-jetified-window-java-1.0.0-beta04-2 /home/haseeb-raza/.gradle/caches/8.14/transforms/39c416c4c166c8922c030f4bb6277e21/transformed/jetified-window-java-1.0.0-beta04/res
+com.csdcorp.speech_to_text-jetified-annotation-experimental-1.1.0-3 /home/haseeb-raza/.gradle/caches/8.14/transforms/461109a5adb93e44813821d5c239e7ef/transformed/jetified-annotation-experimental-1.1.0/res
+com.csdcorp.speech_to_text-main-4 /home/haseeb-raza/.pub-cache/hosted/pub.dev/speech_to_text-6.6.2/android/src/main/res
+com.csdcorp.speech_to_text-release-5 /home/haseeb-raza/.pub-cache/hosted/pub.dev/speech_to_text-6.6.2/android/src/release/res
+com.csdcorp.speech_to_text-pngs-6 /home/haseeb-raza/Desktop/Listencare/listencare/build/speech_to_text/generated/res/pngs/release
+com.csdcorp.speech_to_text-resValues-7 /home/haseeb-raza/Desktop/Listencare/listencare/build/speech_to_text/generated/res/resValues/release
+com.csdcorp.speech_to_text-rs-8 /home/haseeb-raza/Desktop/Listencare/listencare/build/speech_to_text/generated/res/rs/release
+com.csdcorp.speech_to_text-mergeReleaseResources-9 /home/haseeb-raza/Desktop/Listencare/listencare/build/speech_to_text/intermediates/incremental/release/mergeReleaseResources/merged.dir
+com.csdcorp.speech_to_text-mergeReleaseResources-10 /home/haseeb-raza/Desktop/Listencare/listencare/build/speech_to_text/intermediates/incremental/release/mergeReleaseResources/stripped.dir
+com.csdcorp.speech_to_text-merged_res-11 /home/haseeb-raza/Desktop/Listencare/listencare/build/speech_to_text/intermediates/merged_res/release

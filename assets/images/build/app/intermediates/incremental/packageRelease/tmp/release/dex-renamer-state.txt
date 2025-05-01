@@ -1,0 +1,4 @@
+#Sun Apr 27 18:01:42 PKT 2025
+base.0=/home/haseeb-raza/Desktop/Listencare/listencare/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

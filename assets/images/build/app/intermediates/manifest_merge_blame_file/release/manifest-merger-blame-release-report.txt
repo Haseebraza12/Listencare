@@ -1,0 +1,117 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.listencare"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="34" />
+9-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+11-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:2:5-71
+11-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:2:22-68
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:3:5-67
+12-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:3:22-64
+13    <!--
+14         Required to query activities that can process text, see:
+15         https://developer.android.com/training/package-visibility and
+16         https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.
+17
+18         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin.
+19    -->
+20    <queries>
+20-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:42:5-47:15
+21        <intent>
+21-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:43:9-46:18
+22            <action android:name="android.intent.action.PROCESS_TEXT" />
+22-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:44:13-72
+22-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:44:21-70
+23
+24            <data android:mimeType="text/plain" />
+24-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:45:13-50
+24-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:45:19-48
+25        </intent>
+26    </queries>
+27
+28    <application
+29        android:name="android.app.Application"
+29-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:7:9-42
+30        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+30-->[androidx.core:core:1.8.0] /home/haseeb-raza/.gradle/caches/8.14/transforms/98a829af22a2a21d7a70b7e812453f29/transformed/core-1.8.0/AndroidManifest.xml:24:18-86
+31        android:icon="@mipmap/ic_launcher"
+31-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:8:9-43
+32        android:label="listencare" >
+32-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:6:9-35
+33        <activity
+33-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:9:9-30:20
+34            android:name="com.example.listencare.MainActivity"
+34-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:10:13-41
+35            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+35-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:15:13-163
+36            android:exported="true"
+36-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:11:13-36
+37            android:hardwareAccelerated="true"
+37-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:16:13-47
+38            android:launchMode="singleTop"
+38-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:12:13-43
+39            android:taskAffinity=""
+39-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:13:13-36
+40            android:theme="@style/LaunchTheme"
+40-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:14:13-47
+41            android:windowSoftInputMode="adjustResize" >
+41-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:17:13-55
+42
+43            <!--
+44                 Specifies an Android theme to apply to this Activity as soon as
+45                 the Android process has started. This theme is visible to the user
+46                 while the Flutter UI initializes. After that, this theme continues
+47                 to determine the Window background behind the Flutter UI.
+48            -->
+49            <meta-data
+49-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:22:13-25:17
+50                android:name="io.flutter.embedding.android.NormalTheme"
+50-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:23:15-70
+51                android:resource="@style/NormalTheme" />
+51-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:24:15-52
+52
+53            <intent-filter>
+53-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:26:13-29:29
+54                <action android:name="android.intent.action.MAIN" />
+54-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:27:17-68
+54-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:27:25-66
+55
+56                <category android:name="android.intent.category.LAUNCHER" />
+56-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:28:17-76
+56-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:28:27-74
+57            </intent-filter>
+58        </activity>
+59        <!--
+60             Don't delete the meta-data below.
+61             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+62        -->
+63        <meta-data
+63-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:33:9-35:33
+64            android:name="flutterEmbedding"
+64-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:34:13-44
+65            android:value="2" />
+65-->/home/haseeb-raza/Desktop/Listencare/listencare/android/app/src/main/AndroidManifest.xml:35:13-30
+66
+67        <uses-library
+67-->[androidx.window:window:1.0.0-beta04] /home/haseeb-raza/.gradle/caches/8.14/transforms/043abc562f34a917fb52fc0d92e4d3b3/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
+68            android:name="androidx.window.extensions"
+68-->[androidx.window:window:1.0.0-beta04] /home/haseeb-raza/.gradle/caches/8.14/transforms/043abc562f34a917fb52fc0d92e4d3b3/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
+69            android:required="false" />
+69-->[androidx.window:window:1.0.0-beta04] /home/haseeb-raza/.gradle/caches/8.14/transforms/043abc562f34a917fb52fc0d92e4d3b3/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
+70        <uses-library
+70-->[androidx.window:window:1.0.0-beta04] /home/haseeb-raza/.gradle/caches/8.14/transforms/043abc562f34a917fb52fc0d92e4d3b3/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
+71            android:name="androidx.window.sidecar"
+71-->[androidx.window:window:1.0.0-beta04] /home/haseeb-raza/.gradle/caches/8.14/transforms/043abc562f34a917fb52fc0d92e4d3b3/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
+72            android:required="false" />
+72-->[androidx.window:window:1.0.0-beta04] /home/haseeb-raza/.gradle/caches/8.14/transforms/043abc562f34a917fb52fc0d92e4d3b3/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
+73    </application>
+74
+75</manifest>
