@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'screens/splash_screen.dart';
+import 'features/captions/application/caption_controller.dart';
+import 'screens/home_screen.dart';
 import 'theme/app_theme.dart';
 
 class ListenCareApp extends StatelessWidget {
-  const ListenCareApp({super.key});
+  const ListenCareApp({super.key, required this.controller});
+  final CaptionController controller;
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'ListenCare',
-      theme: AppTheme.theme,
-      home: const SplashScreen(),
-      debugShowCheckedModeBanner: false,
-    );
-  }
+  Widget build(BuildContext context) => MaterialApp(
+    title: 'ListenCare',
+    debugShowCheckedModeBanner: false,
+    theme: AppTheme.light,
+    home: HomeScreen(controller: controller),
+  );
 }

@@ -1,11 +1,11 @@
 {
-    "name": "listencare",
-    "short_name": "listencare",
+    "name": "ListenCare",
+    "short_name": "ListenCare",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#F7F2FF",
+    "theme_color": "#A87BEF",
+    "description": "Accessible English and Urdu live captions and conversation notes.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

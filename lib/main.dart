@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'app.dart';
-import 'providers/theme_provider.dart';
-import 'providers/language_provider.dart';
+import 'features/captions/application/caption_controller.dart';
+import 'features/captions/data/device_speech_engine.dart';
+import 'features/library/data/local_store.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => ThemeProvider()),
-        ChangeNotifierProvider(create: (_) => LanguageProvider()),
-      ],
-      child: const ListenCareApp(),
-    ),
+  final controller = CaptionController(
+    engine: DeviceSpeechEngine(),
+    store: PreferencesStore(),
   );
+  await controller.load();
+  runApp(ListenCareApp(controller: controller));
 }

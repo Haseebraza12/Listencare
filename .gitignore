@@ -41,3 +41,8 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Legacy generated files accidentally copied under assets; never bundle these.
+assets/images/build/
+# Local visual verification outputs
+artifacts/
