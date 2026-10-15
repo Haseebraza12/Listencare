@@ -16,6 +16,8 @@ class FakeSpeechEngine implements SpeechEngine {
   Completer<bool>? initialization;
   Completer<void>? stopping;
   String? finalOnStop;
+  Completer<void>? pendingListen;
+  String? listenError;
 
   @override
   Future<bool> initialize({
@@ -40,6 +42,8 @@ class FakeSpeechEngine implements SpeechEngine {
     selectedLocale = locale;
     selectedOffline = offline;
     result = onResult;
+    if (pendingListen != null) await pendingListen!.future;
+    if (listenError != null) throw StateError(listenError!);
   }
 
   void emit(String words, {bool finalResult = false}) =>

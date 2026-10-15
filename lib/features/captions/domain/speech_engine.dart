@@ -32,3 +32,7 @@ abstract interface class SpeechEngine {
   Future<void> stop();
   Future<void> cancel();
 }
+
+abstract interface class SpeechSettings {
+  Future<void> openSettings();
+}

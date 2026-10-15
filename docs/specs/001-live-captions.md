@@ -4,7 +4,7 @@ Status: implemented; physical-device acceptance pending.
 
 ## Purpose
 ListenCare makes nearby speech readable for deaf and hard-of-hearing people.
-English and Urdu captions are the primary experience. No account is needed.
+The editable English/Urdu notepad is the primary experience. Microphone dictation is an optional input. No account is needed.
 
 ## Required behavior
 
@@ -16,8 +16,10 @@ English and Urdu captions are the primary experience. No account is needed.
 - CAP-06: Recognition must explicitly use the selected language. Prefer en-US / ur-PK, then the same language family; never fall back from Urdu to English.
 - CAP-07: Backgrounding stops capture. Disposing releases the microphone and timers. Do not start capture automatically on launch.
 - CAP-08: Device service uses the platform recognizer. Offline only requires a verified local recognizer and on-device processing; unsupported environments must fail without online fallback.
-- CAP-09: Captions are selectable, size-adjustable (18–36), and RTL in Urdu. Controls have accessible labels and 48+ logical-pixel tap targets. Reduced-motion preferences stop the decorative ring.
+- CAP-09: Notes are editable while paused, selectable, size-adjustable (18–36), and RTL in Urdu. Controls have accessible labels and 48+ logical-pixel tap targets. Reduced-motion preferences stop the decorative ring.
 - CAP-10: Platform recognizers impose silence/session limits. Display a paused state and preserve text, allowing explicit resume. Do not promise uninterrupted transcription.
+
+- CAP-11: Android checks for a registered speech recognition service before requesting capture. Missing services produce actionable guidance. The listening indicator and timer begin only after confirmed recognition startup.
 
 ## Verification
 `test/caption_controller_test.dart`, `test/transcript_buffer_test.dart`, `test/widget_test.dart`.

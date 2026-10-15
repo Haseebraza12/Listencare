@@ -3,6 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../domain/conversation.dart';
 import '../domain/local_store.dart';
 import '../../captions/domain/speech_engine.dart';
+import '../../captions/domain/note_preferences.dart';
 
 /// A single versioned document avoids partial settings/library writes.
 class PreferencesStore implements LocalStore {
@@ -24,6 +25,14 @@ class PreferencesStore implements LocalStore {
       language: CaptionLanguage.values.byName(json['language'] as String),
       mode: RecognitionMode.values.byName(json['mode'] as String),
       captionSize: (json['captionSize'] as num).toDouble().clamp(18, 36),
+      draftText: json['draftText'] as String? ?? '',
+      draftId: json['draftId'] as String?,
+      draftSeconds: json['draftSeconds'] as int? ?? 0,
+      noteFont: NoteFont.values.firstWhere(
+        (font) => font.name == json['noteFont'],
+        orElse: () => NoteFont.inter,
+      ),
+      animationsEnabled: json['animationsEnabled'] as bool? ?? true,
     );
   }
 
@@ -41,6 +50,11 @@ class PreferencesStore implements LocalStore {
         'language': state.language.name,
         'mode': state.mode.name,
         'captionSize': state.captionSize,
+        'draftText': state.draftText,
+        'draftId': state.draftId,
+        'draftSeconds': state.draftSeconds,
+        'noteFont': state.noteFont.name,
+        'animationsEnabled': state.animationsEnabled,
       }),
     );
     if (!saved) throw StateError('The device could not save your changes.');

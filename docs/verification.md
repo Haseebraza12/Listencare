@@ -1,5 +1,27 @@
 # Modernization audit and verification
 
+## Single-screen simplification — October 14, 2026
+
+Version 2.1 removes bottom navigation and the old multi-panel screens. The main notepad has font/size/animation settings, top-bar saved notes/search, and a compact listening-only microphone pulse. Saving keeps the editor open. Settings pause dictation and preserve the draft before opening.
+
+STT improvements include shared stop/cancellation futures, final-result settlement after silence, recognition-error cleanup before offering retry, late-callback isolation, and Android detection of either default or on-device recognition services. Real-plugin method-channel tests exercise startup confirmation, interim/final results, offline/locale routing, and recovery after errors; they do not substitute for successful recognition on real hardware.
+
+Validation: static analysis reports no issues; all 53 tests pass; the Android x64 debug APK builds. Version 2.1.0 (build 3) was installed over the existing emulator app after backing up its shared preferences. Device smoke checks confirmed the no-tabs editor, settings sheet, missing-provider error/help path, typing, draft persistence, and draft restoration after an app restart. Temporary test text was removed; existing saved notes were retained.
+
+The original API 34 AOSP emulator has no registered `RecognitionService`, which correctly exercises the unavailable-provider path. An official Android 36 Google Play image was then installed for the existing Pixel 6 AVD. It exposes Google TTS and Android System Intelligence recognition services. On that device, the microphone permission prompt completed, ListenCare opened an `en-US` recognition session, Android opened the microphone, pause invoked native `onStopListening`, and the app returned to the editable idle notepad. Two on-device listening frames differed by 5,490 pixels in the microphone region, confirming that the pulse animation runs only during a confirmed session. The headless emulator could not initialize host PulseAudio, so spoken-word accuracy is still a physical-device or visible-emulator acceptance check.
+
+## Notepad restoration — October 12, 2026
+
+The previous redesign removed the original editable notepad. The primary screen now restores multiline typing with optional dictation, pause-to-edit, save/copy/new-note actions, saved-note updates under the same identity, and local draft recovery. Notes and search operate on real stored data; decorative activity charts and the large listening ring have been removed from the active UI.
+
+Additional coverage exercises manual text plus cumulative recognition, corrected text plus resumed dictation, preserved blank lines and Urdu, draft restart recovery, older v2 library compatibility, serialized autosaves, storage failure/retry, saved-note editing without duplication, keyboard/large-text layouts, recognizer startup confirmation, missing Android speech services, and permission-dialog/background transitions.
+
+Emulator inspection returned no configured `voice_recognition_service` and no service responding to `android.speech.RecognitionService`. Therefore successful microphone dictation cannot be certified on this emulator. The native app now checks availability, reports missing providers, and opens Android speech settings. Install/enable a provider on a suitable Google Play image or verify on a configured physical phone. This app change does not install an OS speech service.
+
+Validation completed: `flutter analyze` reports no issues; all 44 tests pass; `flutter build apk --debug --target-platform android-x64` succeeds. Rendered previews were reviewed at phone size, with responsive tests at 320, 390, 768, and 1504 widths. The build reports existing upcoming Gradle/AGP/Kotlin support deprecation warnings; these did not block compilation.
+
+The existing v2 persistence key/schema is retained; draft fields are optional when reading older documents. The existing library is preserved. Speech errors preserve typed/dictated text and do not disable the notepad.
+
 ## Issues addressed
 
 | Issue | Root cause / change | Verification |

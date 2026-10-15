@@ -142,7 +142,7 @@ class PanelHeader extends StatelessWidget {
         leading ??
             CircleAction(
               icon: Icons.chevron_left_rounded,
-              label: 'Go to live captions',
+              label: 'Go to notepad',
               onPressed: onBack,
             ),
         const SizedBox(width: 8),

@@ -88,18 +88,15 @@ void main() {
       await tester.pumpAndSettle();
       expect(tester.takeException(), isNull);
       await capture(tester, 'home-${size.width.toInt()}');
-      if (size.width < 1180) {
-        await tester.tap(find.text('Conversations').last);
-        await tester.pumpAndSettle();
-        expect(find.text('Your conversations'), findsOneWidget);
-        expect(tester.takeException(), isNull);
-        await capture(tester, 'conversations-${size.width.toInt()}');
-        await tester.tap(find.text('Search').last);
-        await tester.pumpAndSettle();
-        expect(find.text('Recent searches'), findsOneWidget);
-        expect(tester.takeException(), isNull);
-        await capture(tester, 'search-${size.width.toInt()}');
-      }
+      expect(find.byType(NavigationBar), findsNothing);
+      await tester.tap(find.byTooltip('Saved notes'));
+      await tester.pumpAndSettle();
+      expect(find.text('Saved notes'), findsOneWidget);
+      expect(tester.takeException(), isNull);
+      await capture(tester, 'notes-${size.width.toInt()}');
+      expect(find.byKey(const ValueKey('notes-search')), findsOneWidget);
+      await tester.pageBack();
+      await tester.pumpAndSettle();
       await tester.pumpWidget(const SizedBox());
     });
   }
@@ -116,15 +113,33 @@ void main() {
     await tester.tap(find.byTooltip('Settings').first);
     await tester.pumpAndSettle();
     expect(find.byType(SettingsScreen), findsOneWidget);
+    final settingsScroll = find.descendant(
+      of: find.byType(SettingsScreen),
+      matching: find.byType(Scrollable),
+    );
+    await tester.scrollUntilVisible(
+      find.text('اردو').last,
+      200,
+      scrollable: settingsScroll,
+    );
+    await tester.pumpAndSettle();
     await tester.tap(find.text('اردو').last);
     await tester.pumpAndSettle();
-    await tester.ensureVisible(find.text('Offline only'));
+    await tester.scrollUntilVisible(
+      find.text('Offline only'),
+      200,
+      scrollable: settingsScroll,
+    );
     await tester.pumpAndSettle();
     await tester.tap(find.text('Offline only'));
     await tester.pumpAndSettle();
     expect(store.state.language, CaptionLanguage.urdu);
     expect(store.state.mode, RecognitionMode.offline);
-    await tester.ensureVisible(find.byType(Slider));
+    await tester.scrollUntilVisible(
+      find.byType(Slider),
+      -200,
+      scrollable: settingsScroll,
+    );
     await tester.pumpAndSettle();
     await tester.drag(find.byType(Slider), const Offset(100, 0));
     await tester.pumpAndSettle();
@@ -161,17 +176,42 @@ void main() {
     );
     await controller.load();
     await tester.pumpWidget(ListenCareApp(controller: controller));
-    await tester.tap(find.text('Search').last);
+    await tester.tap(find.byTooltip('Saved notes'));
     await tester.pumpAndSettle();
-    await tester.enterText(find.byType(TextField), 'project');
+    await tester.enterText(
+      find.byKey(const ValueKey('notes-search')),
+      'project',
+    );
     await tester.pumpAndSettle();
     expect(find.text('Discuss project plans'), findsOneWidget);
     expect(find.text('سلام آپ کیسے ہیں'), findsNothing);
     await tester.ensureVisible(find.text('Discuss project plans'));
     await tester.tap(find.text('Discuss project plans'));
     await tester.pumpAndSettle();
-    expect(find.text('Conversation'), findsOneWidget);
+    expect(find.byKey(const ValueKey('note-editor')), findsOneWidget);
+    expect(controller.transcript, 'Discuss project plans');
     expect(tester.takeException(), isNull);
+    await tester.pumpWidget(const SizedBox());
+  });
+
+  testWidgets('LIB-05 Saved notes page does not show speech errors', (
+    tester,
+  ) async {
+    final controller = CaptionController(
+      engine: FakeSpeechEngine(),
+      store: MemoryStore(),
+    );
+    controller.error =
+        'No speech recognition service is installed or enabled on this Android device.';
+    await tester.pumpWidget(ListenCareApp(controller: controller));
+    await tester.tap(find.byTooltip('Saved notes'));
+    await tester.pumpAndSettle();
+    expect(find.text('Saved notes'), findsOneWidget);
+    expect(
+      find.textContaining('No speech recognition service'),
+      findsNothing,
+    );
+    expect(find.textContaining('No saved notes yet'), findsOneWidget);
     await tester.pumpWidget(const SizedBox());
   });
 
@@ -193,7 +233,9 @@ void main() {
     engine.emit('سلام آپ کیسے ہیں');
     await controller.stop();
     await tester.pumpAndSettle();
-    final text = tester.widget<SelectableText>(find.byType(SelectableText));
+    final text = tester.widget<TextField>(
+      find.byKey(const ValueKey('note-editor')),
+    );
     expect(text.textDirection, TextDirection.rtl);
     expect(text.style!.fontSize, 36);
     expect(tester.takeException(), isNull);

@@ -19,10 +19,7 @@ void main() {
         key: key,
         child: const Directionality(
           textDirection: TextDirection.ltr,
-          child: ColoredBox(
-            color: Color(0xFFF7F2FF),
-            child: BrandMark(size: 1024),
-          ),
+          child: BrandMark(size: 1024),
         ),
       ),
     );

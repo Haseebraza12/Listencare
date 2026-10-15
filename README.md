@@ -1,17 +1,17 @@
 # ListenCare
 
-ListenCare helps deaf and hard-of-hearing people follow nearby conversations through readable **English and Urdu live captions**. It is a Flutter app with no account requirement, a lightweight device speech engine, and locally saved conversation notes.
+ListenCare is an English and Urdu **editable notepad with optional microphone dictation**. Type a note, dictate into it, pause to correct words, and save it locally. The notepad opens first and remains usable when speech recognition is unavailable.
 
-The 2.0 redesign follows the supplied reference: white rounded surfaces, lavender cards, fine borders, purple/pink/apricot accents, and an animated listening ring. Phones have Conversations, Listen, and Search tabs; wide screens show all three panels. Content is adapted to accessible conversations rather than the reference's productivity tasks.
+Version 2.1 uses one notepad screen with white and lavender surfaces. The top bar opens Settings, Saved notes, and the note-actions menu. There is no bottom navigation or multi-panel dashboard. A compact microphone at the bottom pulses during confirmed listening; idle and unavailable states stay still.
 
 ## Features
 
-- Live partial captions without repeated text; pause/resume preserves the conversation.
-- A dedicated Settings page for English/Urdu, **Device service / Offline only**, and caption size.
-- Selectable captions, Urdu RTL layout, bundled Inter/Noto Naskh Arabic fonts, accessible control labels, and reduced-motion support.
-- Save, search, filter, view, copy, and delete conversations on this device.
-- Real weekly/daily/monthly activity and recent searches; no fabricated statistics or AI features.
-- A new vector ListenCare logo and generated launcher icons for Android, iOS, web, macOS, and Windows.
+- Editable multiline notes with copy, save, reopen, update, and confirmed deletion. Saving keeps the current note open; repeated saves update the same note. Save/copy/new-note actions live in the top menu.
+- Debounced local draft recovery, including typed text, dictated text, language, and elapsed dictation time. Saving an existing note updates it without creating duplicates.
+- Dictation replaces interim hypotheses without repeating words. Pause to edit; resume appends a new speech session after your corrected note.
+- Actual recognizer startup confirmation, recoverable error messages, retry, and Android speech-settings access. Failed recognition preserves the note and restores editing.
+- Settings on the main screen control font family, text size, microphone animation, English/Urdu, and device-service/offline-only mode. Urdu uses RTL. Motion respects the OS reduced-motion preference.
+- Saved notes include local search and language filters. No account, sample records, or fabricated activity.
 
 ## Run and verify
 
@@ -49,14 +49,22 @@ The icon generator currently changes `ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET
 
 **Offline only** requests local recognition and refuses to start if the platform cannot enforce it. Android has an additional native capability check to prevent the package's default-recognizer fallback. Apple platforms use the package's required-on-device recognition. Browser offline mode is disabled. A setting does not install an Urdu model: an unsupported/missing language pack produces an explanation instead of silently switching to English or online processing.
 
-The OS can end listening after silence or a session limit. Captions are preserved and the microphone can be tapped to continue; this is not an always-on recognizer. Audio is not recorded or saved by ListenCare. Saved text uses device-local app storage, not a server or backup service.
+The OS can end listening after silence or a session limit. Your note is preserved and the microphone can be tapped to continue; this is not an always-on recognizer. Audio is not recorded or saved by ListenCare. Drafts and saved text use device-local app storage, not a server or backup service.
+
+## Android microphone setup
+
+Dictation needs an installed and enabled Android `RecognitionService`. A plain AOSP emulator can have microphone permission but no speech provider. The app now checks for this before capture and explains the problem rather than showing a running timer.
+
+Use a Google Play emulator image with an enabled speech provider, or a physical phone with speech recognition configured. Check microphone permission for both ListenCare and the provider (for example, the Google app), allow host microphone input in emulator Extended Controls, and verify recognition in the provider itself. Device-service mode may also need internet. These requirements come from the [speech plugin's Android troubleshooting guide](https://github.com/csdcorp/speech_to_text/blob/main/speech_to_text/README.md#not-working-on-an-android-emulator).
+
+After native Android changes, stop the current Flutter run and launch again; hot reload does not replace the platform channel code.
 
 ## Architecture and specification workflow
 
 ```text
 lib/
   app.dart, main.dart           composition and dependency injection
-  screens/                     responsive shell and settings
+  screens/                     single notepad shell, notes library, settings sheet
   features/
     captions/
       domain/                  speech contract and pure transcript buffer
@@ -72,7 +80,7 @@ lib/
 
 Presentation talks to `CaptionController`; speech/storage implementations are injected through interfaces. There is one recognizer, no speech plugin inside screen state, and no permanently closed static stream.
 
-Start behavioral changes in [the specifications](docs/specs/), update acceptance tests alongside the implementation, and run the CI checks. [ADR 001](docs/decisions/001-architecture-and-speech.md) records the engine/architecture decision and future downloadable multilingual engine tradeoffs. [The audit](docs/verification.md) distinguishes automated verification from device acceptance still required.
+Behavior is recorded in [the specifications](docs/specs/), including the restored notepad requirements. Update acceptance tests alongside behavioral changes and run the CI checks. [ADR 001](docs/decisions/001-architecture-and-speech.md) records the engine/architecture decision and future downloadable multilingual engine tradeoffs. [The audit](docs/verification.md) distinguishes automated verification from device acceptance still required.
 
 The old unused model archives remain in the repository but are **not included in the application bundle**. The model under `vosk-model-ur` is Indian English, not Urdu. Legacy generated files under `assets/images/build/` are also excluded from the bundle and ignored for future additions.
 

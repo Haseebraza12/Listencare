@@ -2,8 +2,17 @@
 class TranscriptBuffer {
   String _completed = '';
   String _hypothesis = '';
-  String get text =>
-      [_completed, _hypothesis].where((part) => part.isNotEmpty).join(' ');
+  String get text {
+    if (_completed.isEmpty) return _hypothesis;
+    if (_hypothesis.isEmpty) return _completed;
+    final separator = RegExp(r'\s$').hasMatch(_completed) ? '' : ' ';
+    return '$_completed$separator$_hypothesis';
+  }
+
+  void replace(String text) {
+    _completed = text;
+    _hypothesis = '';
+  }
 
   void beginSession() {
     _completed = text;
